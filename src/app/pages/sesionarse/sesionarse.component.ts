@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Header1Component } from '../../components/header1/header1.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sesionarse',
-  imports: [CommonModule, FormsModule,RouterModule],
+  imports: [Header1Component, RouterLink],
   templateUrl: './sesionarse.component.html',
   styleUrl: './sesionarse.component.css'
 })
