@@ -20,6 +20,15 @@ header {
     gap: 1rem;
 }
 
+/* Enlace del logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
 .logo {
     width: 50px;
     height: 50px;
@@ -94,6 +103,10 @@ button {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
+    }
+
+    .logo-link {
+        flex-direction: column;
     }
 
     .logo {
