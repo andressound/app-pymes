@@ -127,6 +127,57 @@
     margin-top: 0;
 }
 
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos optimizados para imágenes más pequeñas */
+.card img {
+    width: 80%;
+    /* Reducir el ancho para dejar márgenes */
+    height: 120px;
+    /* Altura más compacta */
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    background-color: #f5f7fa;
+    padding: 0.3rem;
+}
+
+.card h3 {
+    color: #3498db;
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card:hover img {
+    transform: scale(1.02);
+    /* Zoom más sutil */
+    transition: transform 0.2s ease;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .sidebar {
@@ -172,5 +223,67 @@
 
     .cards-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Media Queries optimizadas */
+@media (max-width: 991px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+
+    .card {
+        min-height: 160px;
+        padding: 0.8rem;
+    }
+
+    .card img {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .card {
+        min-height: 140px;
+        padding: 0.6rem;
+    }
+
+    .card img {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0.6rem;
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .card {
+        min-height: 120px;
+        padding: 0.5rem;
+    }
+
+    .card img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+        font-size: 0.85rem;
     }
 }
