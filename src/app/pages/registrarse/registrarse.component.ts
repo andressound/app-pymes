@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Header1Component } from '../../components/header1/header1.component';
+import { RouterLink } from '@angular/router';
+import { NavComponent } from '../../components/nav/nav.component';
 
 @Component({
   selector: 'app-registrarse',
-  imports: [CommonModule, RouterModule],
+  imports: [Header1Component, RouterLink],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css'
 })
