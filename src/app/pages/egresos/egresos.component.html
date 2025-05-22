@@ -1,0 +1,84 @@
+<app-header2></app-header2>
+<!-- Contenedor principal que incluye el menú lateral y el contenido de ingresos -->
+<div style="display: flex">
+
+  <!-- Menú lateral -->
+   <aside class="sidebar">
+    <div class="user-info">
+      <h2>Bienvenido</h2>
+      <p>[Nombre de usuario]</p>
+    </div>
+    <ul class="menu">
+      <li><a routerLink="/principal" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i>
+          Panel Principal</a></li>
+      <li><a routerLink="/empresa"><i class="fas fa-building"></i> Empresa</a></li>
+      <li><a routerLink="/ingresos"><i class="fas fa-chart-line"></i> Ingresos</a></li>
+      <li><a routerLink="/egresos"><i class="fas fa-arrow-circle-down"></i> Egresos</a></li>
+      <li><a routerLink="/"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+    </ul>
+  </aside>
+  <!-- Contenido de la sección de ingresos -->
+  <div class="egresos-container">
+    <div class="egresos-header">
+      <h1>EGRESOS</h1>
+    </div>
+
+    <div>
+        <div>
+            <table class="egresos-table">
+        <!-- Cabecera de la tabla -->
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Pago Proveedores</th>
+            <th>Marketing</th>
+            <th>Gasto Nomina</th>
+            <th>Gasto Operativo</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+          <tr>
+          <td>1</td>
+          <td>$400000</td>
+          <td>$890000</td>
+          <td>$238000</td>
+          <td>$352100</td>
+          <td>30/05/2025</td>
+          <td class="actions-cell">
+            <button class="btn-edit">Editar</button>
+            <button class="btn-delete">Eliminar</button>
+          </td>
+          
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>$400000</td>
+          <td>$80000</td>
+          <td>$4500000</td>
+          <td>$352100</td>
+          <td>31/05/2025</td>
+          <td class="actions-cell">
+            <button class="btn-edit">Editar</button>
+            <button class="btn-delete">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>$2340000</td>
+          <td>$678000</td>
+          <td>$89300000</td>
+          <td>$352100</td>
+          <td>1/06/2025</td>
+          <td class="actions-cell">
+            <button class="btn-edit">Editar</button>
+            <button class="btn-delete">Eliminar</button>
+          </td>
+        </tr>
+        </thead>
+      </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+<app-footer2></app-footer2>

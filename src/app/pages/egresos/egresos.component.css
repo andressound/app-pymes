@@ -1,0 +1,253 @@
+/* Estilos generales - igual que en ingresos */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+div[style="display: flex"] {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+/* Sidebar - Mantenemos los mismos estilos */
+.sidebar {
+  width: 250px;
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding: 2rem 1rem;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #2ecc71;
+}
+
+.user-info p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 0.5rem;
+}
+
+.menu a {
+  display: block;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #2ecc71;
+}
+
+.menu i {
+  margin-right: 0.8rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Contenedor de egresos */
+.egresos-container {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.egresos-header {
+  background:  linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.egresos-header h1 {
+  color: #34495e;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Estilos de la tabla de egresos */
+.egresos-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 1.5rem;
+}
+
+.egresos-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.egresos-table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.egresos-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f2f5;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.egresos-table tr:last-child td {
+  border-bottom: none;
+}
+
+.egresos-table tr:hover td {
+  background-color: rgba(231, 76, 60, 0.03);
+}
+
+/* Estilo para filas pares */
+.egresos-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Estilo para valores monetarios (rojo para egresos) */
+.egresos-table td:nth-child(2),
+.egresos-table td:nth-child(3),
+.egresos-table td:nth-child(4),
+.egresos-table td:nth-child(5) {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #9f5a58;
+}
+
+/* Botones de acción */
+.actions-cell {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-edit, .btn-delete {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+}
+
+.btn-edit {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.btn-edit:hover {
+  background-color: rgba(52, 152, 219, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #34495e;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.btn-delete:hover {
+  background-color: rgba(231, 76, 60, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Efecto de hover */
+.egresos-table tr {
+  transition: all 0.25s ease;
+}
+
+.egresos-table tr:hover {
+  transform: translateX(2px);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .egresos-table {
+    border-radius: 8px;
+  }
+  
+  .egresos-table th {
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .egresos-table td {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .actions-cell {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 0.4rem;
+    min-width: 60px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .egresos-table th,
+  .egresos-table td {
+    padding: 0.7rem 0.5rem;
+  }
+  
+  .egresos-table th {
+    font-size: 0.75rem;
+  }
+  
+  .egresos-table td {
+    font-size: 0.8rem;
+  }
+  
+  .btn-edit, .btn-delete {
+    min-width: 50px;
+    font-size: 0.7rem;
+  }
+}
