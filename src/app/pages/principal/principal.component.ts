@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Header2Component } from '../../components/header2/header2.component';
 import { Footer2Component } from '../../components/footer2/footer2.component';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -11,4 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class PrincipalComponent {
 
+  constructor(public route: ActivatedRoute) {
+    const id_usuario = route.snapshot.params['user'];
+  }
 }

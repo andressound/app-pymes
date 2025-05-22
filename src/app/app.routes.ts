@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'registrarse', component: RegistrarseComponent },
     { path: 'sesionarse', component: SesionarseComponent },
-    { path: 'principal', component: PrincipalComponent },
+    { path: 'principal/:user', component: PrincipalComponent },
     { path: 'f-ingresos', component: FIngresosComponent },
     { path: 'f-egresos', component: FEgresosComponent },
 ];
