@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { Header1Component } from '../../components/header1/header1.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { RegistrarseService } from '../../services/registrarse.service';
 
 @Component({
   selector: 'app-registrarse',
-  imports: [Header1Component, RouterLink, FormsModule, CommonModule],
+  imports: [Header1Component, RouterLink, FormsModule],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css'
 })
