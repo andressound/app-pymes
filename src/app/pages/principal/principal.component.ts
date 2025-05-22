@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Header2Component } from '../../components/header2/header2.component';
 import { Footer2Component } from '../../components/footer2/footer2.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Usuario } from '../../models/usuario';
+import { Usuario } from '../../models/Usuario';
 import { PrincipalService } from '../../services/principal.service';
 
 @Component({
