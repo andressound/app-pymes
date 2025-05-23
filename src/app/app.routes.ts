@@ -9,6 +9,7 @@ import { LateralComponent } from './components/lateral/lateral.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { FIngresosComponent } from './pages/f-ingresos/f-ingresos.component';   
 import { FEgresosComponent } from './pages/f-egresos/f-egresos.component';
+import { IndicadoresFinancierosComponent } from './pages/indicadores-financieros/indicadores-financieros.component';
 
 
 export const routes: Routes = [
@@ -23,5 +24,6 @@ export const routes: Routes = [
     { path: 'principal/:user', component: PrincipalComponent },
     { path: 'f-ingresos', component: FIngresosComponent },
     { path: 'f-egresos', component: FEgresosComponent },
+    {path:'indicadores',component:IndicadoresFinancierosComponent},
 
 ];
