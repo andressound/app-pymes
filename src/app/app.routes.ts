@@ -16,7 +16,6 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'registrarse', component: RegistrarseComponent },
     { path: 'sesionarse', component: SesionarseComponent },
-
     { path: 'principal', component: PrincipalComponent },
     {path: 'ingresos', component:IngresosComponent},
     {path: 'egresos', component:EgresosComponent},
