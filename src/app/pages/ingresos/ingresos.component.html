@@ -23,7 +23,11 @@
       <h1>INGRESOS</h1>
     </div>
 
-    <div>
+    <div *ngIf="cargando" class="cargando">
+      Cargando datos...
+    </div>
+
+    <div *ngIf="!cargando">
       <div>
         <table class="ingresos-table">
           <!-- Cabecera de la tabla -->
@@ -34,48 +38,23 @@
               <th>Ingresos Netos</th>
               <th>Ingresos Brutos</th>
               <th>Fecha</th>
-              <th>Acciones</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$200000</td>
-              <td>$500000</td>
-              <td>$30000000</td>
-              <td>30/05/2025</td>
-              <td class="actions-cell">
-                <button class="btn-edit">Editar</button>
-                <button class="btn-delete">Eliminar</button>
-              </td>
-
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>$400000</td>
-              <td>$80000</td>
-              <td>$4500000</td>
-              <td>31/05/2025</td>
-              <td class="actions-cell">
-                <button class="btn-edit">Editar</button>
-                <button class="btn-delete">Eliminar</button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>$2340000</td>
-              <td>$678000</td>
-              <td>$89300000</td>
-              <td>1/06/2025</td>
-              <td class="actions-cell">
-                <button class="btn-edit">Editar</button>
-                <button class="btn-delete">Eliminar</button>
-              </td>
             </tr>
           </thead>
-          <!-- Subencabezados con paréntesis -->
-
+          <!-- Cuerpo de la tabla -->
+          <tbody>
+            <tr *ngFor="let ingreso of ingresos">
+              <td>{{ ingreso.id_ingreso }}</td>
+              <td>{{ ingreso.venta | currency }}</td>
+              <td>{{ ingreso.neto | currency }}</td>
+              <td>{{ ingreso.bruto | currency }}</td>
+              <td>{{ ingreso.fecha | date }}</td>
+            </tr>
+            <tr *ngIf="ingresos.length === 0">
+              <td colspan="5">No hay ingresos registrados</td>
+            </tr>
+          </tbody>
         </table>
       </div>
-
     </div>
   </div>
 </div>
