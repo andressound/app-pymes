@@ -15,8 +15,10 @@ export class IndicadoresFinancierosComponent {
   // Indicador de Apalancamiento
   pasivosTotal: number = 0;
   activosTotal: number = 0;
+  fechaCapacidadEndeudamiento: string = '';
   deudaTotal: number = 0;
   patrimonioTotal: number = 0;
+  fechaRazonDeudaPatrimonio:string='';
 
   // Indicador de Eficiencia
   ventasNetas: number = 0;
@@ -24,7 +26,13 @@ export class IndicadoresFinancierosComponent {
   fechaEficiencia: string = '';
   costosBienesVendidos: number = 0;
   valorPromedioInventario: number = 0;
+  fechaRotacionInventario: String='';
   ventasNetasCreditos: number = 0;
+  cuentasCobrarPromedio:number=0;
+  fechaIndiceRotacionCuentasCobrar:string='';
+  IndiceCostosBienesVendidos:number=0;
+  IndiceCuentasPagar:number=0;
+  fechaIndiceRotacionPagar:string='';
 
   // Indicador de Rentabilidad
   ventasNetasRentabilidad: number = 0;
@@ -32,8 +40,15 @@ export class IndicadoresFinancierosComponent {
   fechaRentabilidad: string = '';
   ventasNetasOperativo: number = 0;
   utilidadOperativa: number = 0;
+  margenOperativoCol:number=0;
   fechaOperativo: string = '';
   utilidadNeta: number = 0;
+  patrimonioTotalRoa:number=0;
+  fechaRoa: string ='';
+  utilidadNetaROE:number=0;
+  patrimonioTotalROE:number=0;
+  fechaROE:string='';
+
 
   // Indicador de Liquidez
   efectivoDisponible: number = 0;
@@ -61,8 +76,10 @@ export class IndicadoresFinancierosComponent {
         apalancamiento: {
           pasivosTotal: this.pasivosTotal,
           activosTotal: this.activosTotal,
+          fechaCapacidadEndeudamiento: this.fechaCapacidadEndeudamiento,
           deudaTotal: this.deudaTotal,
-          patrimonioTotal: this.patrimonioTotal
+          patrimonioTotal: this.patrimonioTotal,
+          fechaRazonDeudaPatrimonio: this.fechaRazonDeudaPatrimonio
         },
         eficiencia: {
           ventasNetas: this.ventasNetas,
@@ -70,7 +87,13 @@ export class IndicadoresFinancierosComponent {
           fecha: this.fechaEficiencia,
           costosBienesVendidos: this.costosBienesVendidos,
           valorPromedioInventario: this.valorPromedioInventario,
-          ventasNetasCreditos: this.ventasNetasCreditos
+          fechaRotacionInventario: this.fechaRotacionInventario,
+          ventasNetasCreditos: this.ventasNetasCreditos,
+          cuentasCobrarPromedio:this.cuentasCobrarPromedio,
+          fechaIndiceRotacionCuentasCobrar:this.fechaIndiceRotacionCuentasCobrar,
+          IndiceCostosBienesVendidos:this.IndiceCostosBienesVendidos,
+          IndiceCuentasPagar:this.IndiceCuentasPagar,
+          fechaIndiceRotacionPagar:this.fechaIndiceRotacionPagar
         },
         rentabilidad: {
           ventasNetas: this.ventasNetasRentabilidad,
@@ -78,8 +101,14 @@ export class IndicadoresFinancierosComponent {
           fecha: this.fechaRentabilidad,
           ventasNetasOperativo: this.ventasNetasOperativo,
           utilidadOperativa: this.utilidadOperativa,
+          margenOperativoCol: this.margenOperativoCol,
           fechaOperativo: this.fechaOperativo,
-          utilidadNeta: this.utilidadNeta
+          utilidadNeta: this.utilidadNeta,
+          patrimonioTotalRoa:this.patrimonioTotalRoa,
+          fechaRoa: this.fechaRoa,
+          utilidadNetaROE: this.utilidadNetaROE,
+          patrimonioTotalROE: this.patrimonioTotalROE,
+          fechaROE: this.fechaROE
         },
         liquidez: {
           efectivoDisponible: this.efectivoDisponible,
@@ -103,13 +132,15 @@ export class IndicadoresFinancierosComponent {
     const camposNumericos = [
       this.pasivosTotal, this.activosTotal, this.deudaTotal, this.patrimonioTotal,
       this.ventasNetas, this.activoTotalPromedio, this.costosBienesVendidos,
-      this.valorPromedioInventario, this.ventasNetasCreditos,
+      this.valorPromedioInventario, this.ventasNetasCreditos,this.cuentasCobrarPromedio,this.IndiceCostosBienesVendidos,this.IndiceCuentasPagar,
       this.ventasNetasRentabilidad, this.beneficioBruto, this.ventasNetasOperativo,
-      this.utilidadOperativa, this.utilidadNeta, this.efectivoDisponible,
+      this.utilidadOperativa,this.margenOperativoCol,this.patrimonioTotalRoa, this.utilidadNeta,this.utilidadNetaROE,this.patrimonioTotalROE, this.efectivoDisponible,
       this.pasivoCorriente, this.precioAccion, this.beneficioPorAccion
     ];
 
-    const camposFecha = [this.fechaEficiencia, this.fechaRentabilidad, this.fechaOperativo, this.fechaLiquidez, this.fechaMercado];
+    const camposFecha = [this.fechaCapacidadEndeudamiento,this.fechaRazonDeudaPatrimonio,this.fechaIndiceRotacionPagar,this.fechaEficiencia,
+      this.fechaRotacionInventario,this.fechaIndiceRotacionCuentasCobrar, this.fechaRentabilidad,this.fechaRoa,this.fechaROE,
+      this.fechaOperativo, this.fechaLiquidez, this.fechaMercado];
 
     if (camposNumericos.some(campo => campo <= 0)) {
       this.formError = "Todos los campos numéricos deben ser mayor a 0";
@@ -134,21 +165,34 @@ export class IndicadoresFinancierosComponent {
     // Resetear todos los campos
     this.pasivosTotal = 0;
     this.activosTotal = 0;
+    this.fechaCapacidadEndeudamiento='';
     this.deudaTotal = 0;
     this.patrimonioTotal = 0;
+    this.fechaRazonDeudaPatrimonio='';
     this.ventasNetas = 0;
     this.activoTotalPromedio = 0;
     this.fechaEficiencia = '';
     this.costosBienesVendidos = 0;
     this.valorPromedioInventario = 0;
+    this.fechaRotacionInventario = '';
     this.ventasNetasCreditos = 0;
+    this.cuentasCobrarPromedio =0;
+    this.IndiceCostosBienesVendidos=0;
+    this.IndiceCuentasPagar=0;
+    this.fechaIndiceRotacionPagar='';
     this.ventasNetasRentabilidad = 0;
     this.beneficioBruto = 0;
     this.fechaRentabilidad = '';
     this.ventasNetasOperativo = 0;
     this.utilidadOperativa = 0;
+    this.margenOperativoCol=0;
     this.fechaOperativo = '';
     this.utilidadNeta = 0;
+    this.utilidadNetaROE=0;
+    this.patrimonioTotalROE=0;
+    this.patrimonioTotalRoa=0;
+    this.fechaRoa='';
+    this.fechaROE='';
     this.efectivoDisponible = 0;
     this.pasivoCorriente = 0;
     this.fechaLiquidez = '';
