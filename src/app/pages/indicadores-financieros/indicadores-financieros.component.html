@@ -51,6 +51,12 @@
                      [(ngModel)]="activosTotal" placeholder="Ingresa el valor de activos totales" min="0">
             </div>
 
+            <div class="form-group">
+              <label for="fechaCapacidadEndeudamiento">Fecha</label>
+              <input type="date" id="fechaCapacidadEndeudamiento" name="fechaCapacidadEndeudamiento" class="form-control" 
+                     [(ngModel)]="fechaCapacidadEndeudamiento" placeholder="DD/MM/AAAA">
+            </div>
+
             <div class="section-subtitle">Razón De Deuda A Patrimonio</div>
 
             <div class="form-group">
@@ -63,6 +69,12 @@
               <label for="patrimonioTotal">Patrimonio Total</label>
               <input type="number" id="patrimonioTotal" name="patrimonioTotal" class="form-control" 
                      [(ngModel)]="patrimonioTotal" placeholder="Ingresa el patrimonio total" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaRazonDeudaPatrimonio">Fecha</label>
+              <input type="date" id="fechaRazonDeudaPatrimonio" name="fechaRazonDeudaPatrimonio" class="form-control" 
+                     [(ngModel)]="fechaRazonDeudaPatrimonio" placeholder="DD/MM/AAAA">
             </div>
 
             <!-- INDICADOR DE EFICIENCIA -->
@@ -105,6 +117,12 @@
                      [(ngModel)]="valorPromedioInventario" placeholder="Ingresa el valor promedio de inventario" min="0">
             </div>
 
+            <div class="form-group">
+              <label for="fechaRotacionInventario">Fecha</label>
+              <input type="date" id="fechaRotacionInventario" name="fechaRotacionInventario" class="form-control" 
+                     [(ngModel)]="fechaRotacionInventario" placeholder="DD/MM/AAAA">
+            </div>
+
             <div class="section-subtitle">Índice De Rotación De Cuenta Por Cobrar</div>
 
             <div class="form-group">
@@ -113,11 +131,45 @@
                      [(ngModel)]="ventasNetasCreditos" placeholder="Ingresa las ventas netas a créditos" min="0">
             </div>
 
+            <div class="form-group">
+              <label for="cuentasCobrarPromedio">Cuentas por cobrar promedio</label>
+              <input type="number" id="cuentasCobrarPromedio" name="cuentasCobrarPromedio" class="form-control" 
+                     [(ngModel)]="cuentasCobrarPromedio" placeholder="Ingresa las ventas netas a créditos" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaIndiceRotacionCuentasCobrar">Fecha</label>
+              <input type="date" id="fechaIndiceRotacionCuentasCobrar" name="fechaIndiceRotacionCuentasCobrar" class="form-control" 
+                     [(ngModel)]="fechaIndiceRotacionCuentasCobrar" placeholder="DD/MM/AAAA">
+            </div>
+
+            <div class="section-subtitle">Índice De Rotación De Cuenta Por Pagar</div>
+
+            <div class="form-group">
+              <label for="IndiceCostosBienesVendidos">IndiceCostosBienesVendidos</label>
+              <input type="number" id="IndiceCostosBienesVendidos" name="IndiceCostosBienesVendidos" class="form-control" 
+                     [(ngModel)]="IndiceCostosBienesVendidos" placeholder="Ingresa el valor de los bienes vendidos" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="IndiceCuentasPagar">IndiceCuentasPagar</label>
+              <input type="number" id="IndiceCuentasPagar" name="IndiceCuentasPagar" class="form-control" 
+                     [(ngModel)]="IndiceCuentasPagar" placeholder="Ingresa las cuentas por pagar" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaIndiceRotacionPagar">Fecha</label>
+              <input type="date" id="fechaIndiceRotacionPagar" name="fechaIndiceRotacionPagar" class="form-control" 
+                     [(ngModel)]="fechaIndiceRotacionPagar" placeholder="DD/MM/AAAA">
+            </div>
+
             <!-- INDICADOR DE RENTABILIDAD -->
             <div class="section-title">
               <h3>Indicador De Rentabilidad</h3>
               <p class="subtitle">Por Favor Complete Los Siguientes Campos</p>
             </div>
+
+            
 
             <div class="section-subtitle">Margen Brutos</div>
 
@@ -154,6 +206,12 @@
             </div>
 
             <div class="form-group">
+              <label for="margenOperativoCol">Margen Operativo col</label>
+              <input type="number" id="margenOperativoCol" name="margenOperativoCol" class="form-control" 
+                     [(ngModel)]="margenOperativoCol" placeholder="Ingresa el margen operativo col" min="0">
+            </div>
+
+            <div class="form-group">
               <label for="fechaOperativo">Fecha</label>
               <input type="date" id="fechaOperativo" name="fechaOperativo" class="form-control" 
                      [(ngModel)]="fechaOperativo" placeholder="DD/MM/AAAA">
@@ -165,6 +223,38 @@
               <label for="utilidadNeta">Utilidad Neta</label>
               <input type="number" id="utilidadNeta" name="utilidadNeta" class="form-control" 
                      [(ngModel)]="utilidadNeta" placeholder="Ingresa la utilidad neta" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="patrimonioTotalRoa">Patrimonio total</label>
+              <input type="number" id="patrimonioTotalRoa" name="patrimonioTotalRoa" class="form-control" 
+                     [(ngModel)]="patrimonioTotalRoa" placeholder="Ingresa el patrimonio total" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaRoa">Fecha</label>
+              <input type="date" id="fechaRoa" name="fechaRoa" class="form-control" 
+                     [(ngModel)]="fechaRoa" placeholder="DD/MM/AAAA">
+            </div>
+
+            <div class="section-subtitle">ROE</div>
+
+            <div class="form-group">
+              <label for="utilidadNetaROE">Utilidad Neta</label>
+              <input type="number" id="utilidadNetaROE" name="utilidadNetaROE" class="form-control" 
+                     [(ngModel)]="utilidadNetaROE" placeholder="Ingresa la utilidad neta" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="patrimonioTotalROE">patrimonio Total</label>
+              <input type="number" id="patrimonioTotalROE" name="patrimonioTotalROE" class="form-control" 
+                     [(ngModel)]="patrimonioTotalROE" placeholder="Ingresa el patrimonio total" min="0">
+            </div>
+
+            <div class="form-group">
+              <label for="fechaROE">Fecha</label>
+              <input type="date" id="fechaROE" name="fechaROE" class="form-control" 
+                     [(ngModel)]="fechaROE" placeholder="DD/MM/AAAA">
             </div>
 
             <!-- INDICADOR DE LIQUIDEZ -->
