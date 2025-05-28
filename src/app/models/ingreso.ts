@@ -3,6 +3,6 @@ export interface Ingreso {
     venta: number,
     neto: number,
     bruto: number,
-    fecha: Date,
+    fecha: Date
     id_empresa: number;
 }
