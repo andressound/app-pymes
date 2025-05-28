@@ -24,33 +24,59 @@
           <h1 class="login-title">SAVE WITH US</h1>
           <h2>Registrar ingresos</h2>
 
-          <form class="login-form">
-            <div class="form-group">
-              <label for="ventas">Ingresos de ventas</label>
-              <input type="number" id="ventas" class="form-control" placeholder="Ingrese sus ingresos de ventas">
+          <form class="login-form" (ngSubmit)="registrarIngreso()">
+            <!-- Mensaje de error general -->
+            <div *ngIf="formError" class="alert alert-danger">
+              {{ formError }}
             </div>
 
             <div class="form-group">
-              <label for="netos">Ingresos netos</label>
-              <input type="number" id="netos" class="form-control" placeholder="Ingrese sus ingresos netos">
+              <label for="venta">Ingresos de ventas</label>
+              <input type="number" id="venta" name="venta" class="form-control"
+                     [(ngModel)]="venta" placeholder="Ingrese sus ingresos de ventas" required>
+              <div class="text-danger">{{ ventaError }}</div>
             </div>
 
             <div class="form-group">
-              <label for="brutos">Ingresos brutos</label>
-              <input type="number" id="brutos" class="form-control" placeholder="Ingrese sus ingresos brutos">
+              <label for="neto">Ingresos netos</label>
+              <input type="number" id="neto" name="neto" class="form-control"
+                     [(ngModel)]="neto" placeholder="Ingrese sus ingresos netos" required>
+              <div class="text-danger">{{ netoError }}</div>
+            </div>
+
+            <div class="form-group">
+              <label for="bruto">Ingresos brutos</label>
+              <input type="number" id="bruto" name="bruto" class="form-control"
+                     [(ngModel)]="bruto" placeholder="Ingrese sus ingresos brutos" required>
+              <div class="text-danger">{{ brutoError }}</div>
             </div>
 
             <div class="form-group">
               <label for="fecha">Fecha</label>
-              <input type="date" id="fecha" class="form-control" placeholder="Ingrese la fecha">
+              <input type="date" id="fecha" name="fecha" class="form-control"
+                     [(ngModel)]="fecha" required>
+              <div class="text-danger">{{ fechaError }}</div>
             </div>
 
-            <button type="submit" class="login-button" routerLink="/principal">Registrar ingresos</button>
+            <button type="submit" class="login-button">Registrar ingresos</button>
+
+            <!-- Modal de éxito -->
+            <div *ngIf="registroExitoso" class="modal-backdrop">
+              <div class="modal-content">
+                <h3>¡Ingreso registrado!</h3>
+                <p>Los datos fueron guardados correctamente.</p>
+                <button type="button" (click)="cambiar_registros()">OK</button>
+              </div>
+            </div>
+
+            <!-- Error adicional si falló -->
+            <div *ngIf="registroFallido && !formError" class="alert alert-danger mt-3">
+              Ocurrió un error al guardar el ingreso.
+            </div>
           </form>
         </div>
       </div>
     </main>
   </div>
-
   <app-footer2></app-footer2>
 </div>

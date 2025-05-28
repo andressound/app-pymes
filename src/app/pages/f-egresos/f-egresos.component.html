@@ -1,5 +1,4 @@
 <div class="dashboard-wrapper">
-
   <app-header2></app-header2>
 
   <div class="dashboard-container">
@@ -24,38 +23,73 @@
           <h1 class="login-title">SAVE WITH US</h1>
           <h2>Registro de egresos</h2>
 
-          <form class="login-form">
-            <div class="form-group">
-              <label for="ventas">Pago a proovedores</label>
-              <input type="number" id="proovedores" class="form-control" placeholder="Ingrese su gasto en proovedores">
+          <form class="login-form" (ngSubmit)="registrarEgreso()" #egresoForm="ngForm">
+            <!-- Mensaje de error general -->
+            <div *ngIf="formError" class="alert alert-danger">
+              {{ formError }}
             </div>
 
+            <!-- Campo Pago a Proveedores -->
             <div class="form-group">
-              <label for="netos">Gasto de Marketing</label>
-              <input type="number" id="marketing" class="form-control" placeholder="Ingresa su gasto en marketing">
+              <label for="pago_proveedores">Pago a proveedores</label>
+              <input type="number" id="pago_proveedores" name="pago_proveedores" class="form-control"
+                     [(ngModel)]="pago_proveedores" placeholder="Ingrese el valor pagado a proveedores" required>
+              <div class="text-danger">{{ proveedoresError }}</div>
             </div>
 
+            <!-- Campo Gasto de Marketing -->
             <div class="form-group">
-              <label for="brutos">Gasto nomina</label>
-              <input type="number" id="nomina" class="form-control" placeholder="Ingresa su gasto en nomina">
+              <label for="marketing">Gasto de Marketing</label>
+              <input type="number" id="marketing" name="marketing" class="form-control"
+                     [(ngModel)]="marketing" placeholder="Ingrese el gasto en marketing" required>
+              <div class="text-danger">{{ marketingError }}</div>
             </div>
 
+            <!-- Campo Gasto de Nómina -->
             <div class="form-group">
-              <label for="brutos">Gasto operativo</label>
-              <input type="number" id="operativo" class="form-control" placeholder="Ingresa su gasto operativo">
+              <label for="gasto_nomina">Gasto de Nómina</label>
+              <input type="number" id="gasto_nomina" name="gasto_nomina" class="form-control"
+                     [(ngModel)]="gasto_nomina" placeholder="Ingrese el gasto de nómina" required>
+              <div class="text-danger">{{ nominaError }}</div>
             </div>
 
+            <!-- Campo Gasto Operativo -->
+            <div class="form-group">
+              <label for="gasto_operativo">Gasto Operativo</label>
+              <input type="number" id="gasto_operativo" name="gasto_operativo" class="form-control"
+                     [(ngModel)]="gasto_operativo" placeholder="Ingrese el gasto operativo" required>
+              <div class="text-danger">{{ operativoError }}</div>
+            </div>
+
+            <!-- Campo Fecha -->
             <div class="form-group">
               <label for="fecha">Fecha</label>
-              <input type="date" id="fecha" class="form-control" placeholder="Ingresa la fecha">
+              <input type="date" id="fecha" name="fecha" class="form-control"
+                     [(ngModel)]="fecha" required>
+              <div class="text-danger">{{ fechaError }}</div>
             </div>
 
-            <button type="submit" class="login-button" routerLink="/principal">Registrar egresos</button>
+            <button type="submit" class="login-button">Registrar Egreso</button>
+
+            <!-- Modal de éxito -->
+            <div *ngIf="registroExitoso" class="modal-backdrop">
+              <div class="modal-content">
+                <h3>¡Registro Exitoso!</h3>
+                <p>El egreso ha sido registrado correctamente.</p>
+                <button type="button" (click)="cambiar_registros()">Ok</button>
+              </div>
+            </div>
+
+            <!-- Error adicional si no hubo éxito -->
+            <div *ngIf="registroFallido && !formError" class="alert alert-danger mt-3">
+              Ocurrió un error al guardar el egreso.
+            </div>
           </form>
         </div>
       </div>
     </main>
-  </div>
 
-  <app-footer2></app-footer2>
+  
+  </div>
 </div>
+    <app-footer2></app-footer2>
