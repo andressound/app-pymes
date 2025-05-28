@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IngresoService } from '../../services/ingreso.service';
-import { Ingreso } from '../../models/ingreso';
+import { Ingreso } from '../../models/Ingreso';
 
 @Component({
   selector: 'app-f-ingresos',
@@ -67,12 +67,13 @@ export class FIngresosComponent {
       return;
     }
 
-    const   ingreso: Ingreso = {
+    const ingreso: Ingreso = {
       venta: this.venta,
       neto: this.neto,
       bruto: this.bruto,
-      fecha: this.fecha,
-      id_empresa: this.id_empresa
+      fecha: new Date(this.fecha),
+      id_empresa: this.id_empresa,
+      id_ingreso: ''
     };
 
     this.ingresoService.registrarIngreso(ingreso).subscribe({
