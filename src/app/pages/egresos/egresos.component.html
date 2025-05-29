@@ -1,9 +1,9 @@
 <app-header2></app-header2>
-<!-- Contenedor principal que incluye el menú lateral y el contenido de ingresos -->
-<div style="display: flex">
 
-  <!-- Menú lateral -->
-   <aside class="sidebar">
+<!-- Contenedor principal que incluye el menú lateral y el contenido de egresos -->
+<div style="display: flex">
+  <!-- Componente de menú lateral -->
+  <aside class="sidebar">
     <div class="user-info">
       <h2>Bienvenido</h2>
       <p>[Nombre de usuario]</p>
@@ -17,66 +17,48 @@
       <li><a routerLink="/"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul>
   </aside>
-  <!-- Contenido de la sección de ingresos -->
+
+  <!-- Contenido de la sección de egresos -->
   <div class="egresos-container">
     <div class="egresos-header">
       <h1>EGRESOS</h1>
     </div>
 
-    <div>
-        <div>
-            <table class="egresos-table">
-        <!-- Cabecera de la tabla -->
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Pago Proveedores</th>
-            <th>Marketing</th>
-            <th>Gasto Nomina</th>
-            <th>Gasto Operativo</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-          </tr>
-          <tr>
-          <td>1</td>
-          <td>$400000</td>
-          <td>$890000</td>
-          <td>$238000</td>
-          <td>$352100</td>
-          <td>30/05/2025</td>
-          <td class="actions-cell">
-            <button class="btn-edit">Editar</button>
-            <button class="btn-delete">Eliminar</button>
-          </td>
-          
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>$400000</td>
-          <td>$80000</td>
-          <td>$4500000</td>
-          <td>$352100</td>
-          <td>31/05/2025</td>
-          <td class="actions-cell">
-            <button class="btn-edit">Editar</button>
-            <button class="btn-delete">Eliminar</button>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>$2340000</td>
-          <td>$678000</td>
-          <td>$89300000</td>
-          <td>$352100</td>
-          <td>1/06/2025</td>
-          <td class="actions-cell">
-            <button class="btn-edit">Editar</button>
-            <button class="btn-delete">Eliminar</button>
-          </td>
-        </tr>
-        </thead>
-      </table>
-        </div>
+    <div *ngIf="cargando" class="cargando">
+      Cargando datos...
+    </div>
+
+    <div *ngIf="!cargando">
+      <div>
+        <table class="egresos-table">
+          <!-- Cabecera de la tabla -->
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pago a Proveedores</th>
+              <th>Gasto de Marketing</th>
+              <th>Gasto de Nómina</th>
+              <th>Gasto Operativo</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+
+          <!-- Cuerpo de la tabla -->
+          <tbody>
+            <tr *ngFor="let egreso of egresos">
+              <td>{{ egreso.id_egresos }}</td>
+              <td>{{ egreso.pago_proveedores | currency }}</td>
+              <td>{{ egreso.marketing | currency }}</td>
+              <td>{{ egreso.gasto_nomina | currency }}</td>
+              <td>{{ egreso.gasto_operativo | currency }}</td>
+              <td>{{ egreso.fecha | date }}</td>
+            </tr>
+            <tr *ngIf="egresos.length === 0">
+              <td colspan="6">No hay egresos registrados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
