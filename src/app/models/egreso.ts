@@ -3,6 +3,6 @@ export interface Egreso {
   gasto_nomina: number;
   gasto_operativo: number;
   marketing: number;
-  fecha: string;         
+  fecha: Date,         
   id_empresa: number;
 };

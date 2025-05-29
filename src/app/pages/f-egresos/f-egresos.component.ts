@@ -80,7 +80,7 @@ export class FEgresosComponent {
       gasto_nomina: this.gasto_nomina,
       gasto_operativo: this.gasto_operativo,
       marketing: this.marketing,
-      fecha: this.fecha,
+      fecha: new Date(this.fecha),
       id_empresa: this.id_empresa
     };
 
