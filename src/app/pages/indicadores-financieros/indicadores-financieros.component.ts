@@ -142,13 +142,6 @@ export class IndicadoresComponent {
   id_empresa
 }).toPromise(),
 
-      this.ratioCajaService.registrar({
-        efectivo_disponible: this.efectivoDisponible, 
-        pasivo_corriente: this.pasivoCorriente,
-        fecha: this.fechaLiquidez,
-        id_empresa
-      }).toPromise(),
-      
       this.margenBrutoService.registrar({
         ventas_netas: this.ventasNetasRentabilidad,
         beneficio_bruto: this.beneficioBruto,
