@@ -1,3 +1,164 @@
+/* Estilos para el botón principal */
+.btn-generar {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-generar:hover {
+  background-color: #45a049;
+}
+
+.btn-generar i {
+  margin-right: 8px;
+}
+
+/* Estilos para la sección de carga */
+.loading {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para los resultados */
+.resultado {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.resultado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.diagnostico-texto {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+/* Estilos para errores */
+.error {
+  color: #d9534f;
+  background-color: #fdf7f7;
+  border: 1px solid #ebccd1;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn-reintentar {
+  background-color: #d9534f;
+  color: white;
+  margin-top: 10px;
+}
+
+.inicio-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+div[style="display: flex"] {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+/* Sidebar - Mantenemos los mismos estilos */
+.sidebar {
+  width: 250px;
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding: 2rem 1rem;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #2ecc71;
+}
+
+.user-info p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 0.5rem;
+}
+
+.menu a {
+  display: block;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #2ecc71;
+}
+
+.menu i {
+  margin-right: 0.8rem;
+  width: 20px;
+  text-align: center;
+}
 .container {
   max-width: 800px;
   margin: 2rem auto;
