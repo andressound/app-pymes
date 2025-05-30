@@ -1,5 +1,5 @@
 from openai import OpenAI
-import mysql.connector 
+import mysql.connector
 import json
 import decimal
 
@@ -41,12 +41,12 @@ import decimal
 
 def analizar_datos(datos):
     prompt = f"""
-Eres un analista financiero. A continuación tienes un resumen de los indicadores financieros más recientes de una empresa. 
-Con base en estos datos, evalúa si la empresa está en riesgo financiero, estable o saludable, y proporciona una recomendación basandote en los datos introducidos mas recientes:
+Eres un analista financiero. A continuación tienes un resumen de los indicadores financieros más recientes de una empresa.
+Con base en estos datos, evalúa si la empresa está en riesgo financiero, estable o saludable, y proporciona una recomendación:
 
 {json.dumps(datos, indent=2, default=lambda x: float(x) if isinstance(x, decimal.Decimal) else str(x))}
 
-Responde de forma breve y clara con un diagnóstico financiero.
+Responde de forma breve y clara con un diagnóstico financiero utilizando los ultimos datos registrados.
 """
 
     response = client.chat.completions.create(
